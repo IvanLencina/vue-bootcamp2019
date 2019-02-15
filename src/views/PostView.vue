@@ -1,12 +1,17 @@
 <template>
     <section class="post-view">
-        <post
-           v-if="catImgUrl"
-           :img-url="catImgUrl"
-           :comments="comments"
-           @comment-added="addComment"/>
-
-        <comment-counter :count="commentsCount"/>
+      <div class="columns">
+        <div class="column">
+          <post
+            v-if="catImgUrl"
+            :img-url="catImgUrl"
+            :comments="comments"
+            @comment-added="addComment"/>
+        </div>
+        <div class="column">
+          <comment-counter :count="commentsCount"/>
+        </div>
+      </div>
     </section>
 </template>
 
@@ -26,12 +31,13 @@
         comments: []
       }
     },
-    created() {
-      this.$http.get('https://aws.random.cat/meow').then((response) => {
+    async created() {
+      try {
+        const response = await this.$http.get('https://aws.random.cat/meow');
         this.catImgUrl = response.data.file;
-      }).catch((e) => {
-        console.log(e);
-      });
+      } catch (e) {
+        // log error
+      }
     },
     methods: {
       addComment(comment) {

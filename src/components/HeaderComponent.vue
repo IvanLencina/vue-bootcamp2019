@@ -39,6 +39,7 @@
 
 <style lang="scss" scoped>
   nav.navbar {
+    position: relative;
     div.container {
       div.navbar-menu {
         div.navbar-end {

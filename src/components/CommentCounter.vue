@@ -1,10 +1,12 @@
 <template>
-    <div class="comments-container">
-        <span class="comment-counter">
-            {{ count }}
-        </span>
-        <span>Comentarios</span>
+  <div class="comments-container">
+    <div class="badge">
+      <span class="comment-counter">
+        {{ count }}
+      </span>
     </div>
+    <span>Comentarios</span>
+  </div>
 </template>
 
 <script>
@@ -22,15 +24,21 @@
 </script>
 
 <style lang="scss" scoped>
-    div.comments-container {
-        position: fixed;
-        top: 10%;
-        right: 15%;
-        span.comment-counter {
-            background: rgba(green, 0.7);
-            color: #fff;
-            padding: 0.2rem;
-            border-radius: 50%;
-        }
+  div.comments-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    div.badge {
+      display: flex;
+      margin: 0 0.5rem;
+      span.comment-counter {
+        width: 1.8rem;
+        background: rgba(green, 0.7);
+        color: #fff;
+        padding: 0.15rem;
+        border-radius: 50%;
+        text-align: center;
+      }
     }
+  }
 </style>

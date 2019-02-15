@@ -1,14 +1,12 @@
 <template>
     <div class="home-container">
-        Esta es la home
-
-        <router-link :to="{ name: 'contact' }">Contacto</router-link>
+        <post-view></post-view>
     </div>
 </template>
 <script>
-    import HeaderComponent from '../components/HeaderComponent'
+  import PostView from './PostView';
 
-    export default {
+  export default {
       name: 'Home',
       data() {
         return {
@@ -16,7 +14,7 @@
         }
       },
       components: {
-        HeaderComponent
+        PostView
       }
     }
 </script>

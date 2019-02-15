@@ -17,5 +17,11 @@
 </script>
 
 <style scoped>
-
+  footer {
+    position: absolute;
+    bottom: -3vh;
+    z-index: 99999;
+    width: 100%;
+    padding: 1rem;
+  }
 </style>

@@ -23,13 +23,9 @@ export default {
 
 <style lang="scss">
 #app {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  justify-content: space-between;
-
   div.main-content {
-    height: 100%;
+    min-height: 100vh;
+    padding-bottom: 10vh;
   }
 }
 </style>
