@@ -25,7 +25,8 @@ export default {
 #app {
   div.main-content {
     min-height: 100vh;
-    padding-bottom: 10vh;
+    /*padding-bottom: 10vh;*/
+    padding: 5vh 0 10vh 0;
   }
 }
 </style>

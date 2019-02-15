@@ -10,6 +10,12 @@
         </div>
         <div class="column">
           <comment-counter :count="commentsCount"/>
+          <div class="reload-image-container" @click="reloadImage">
+            <span class="icon has-text-info">
+              <i class="fas fa-redo-alt"></i>
+            </span>
+            <span>Reload</span>
+          </div>
         </div>
       </div>
     </section>
@@ -32,16 +38,19 @@
       }
     },
     async created() {
-      try {
-        const response = await this.$http.get('https://aws.random.cat/meow');
-        this.catImgUrl = response.data.file;
-      } catch (e) {
-        // log error
-      }
+      await this.reloadImage();
     },
     methods: {
       addComment(comment) {
         this.comments.push(comment)
+      },
+      async reloadImage() {
+        try {
+          const response = await this.$http.get('https://aws.random.cat/meow');
+          this.catImgUrl = response.data.file;
+        } catch (e) {
+          // log error
+        }
       }
     },
     computed: {
@@ -58,5 +67,10 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+
+      div.reload-image-container {
+        padding: 0.5rem;
+        cursor: pointer;
+      }
     }
 </style>
