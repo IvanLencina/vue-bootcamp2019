@@ -62,6 +62,7 @@
 </script>
 
 <style lang="scss" scoped>
+  @import "~bulma/sass/utilities/mixins";
     section.post-view {
         display: flex;
         flex-direction: column;
@@ -69,8 +70,17 @@
         justify-content: center;
 
       div.reload-image-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         padding: 0.5rem;
         cursor: pointer;
+      }
+
+      @include from($tablet) {
+        div.reload-image-container {
+          display: block;
+        }
       }
     }
 </style>
