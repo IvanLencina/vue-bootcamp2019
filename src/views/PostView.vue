@@ -6,7 +6,8 @@
             v-if="catImgUrl"
             :img-url="catImgUrl"
             :comments="comments"
-            @comment-added="addComment"/>
+            @comment-added="addComment"
+            @image-loaded="closeSpinner"/>
         </div>
         <div class="column">
           <comment-counter :count="commentsCount"/>
@@ -34,7 +35,8 @@
     data() {
       return {
         catImgUrl: null,
-        comments: []
+        comments: [],
+        spinner: null
       }
     },
     async created() {
@@ -45,11 +47,19 @@
         this.comments.push(comment)
       },
       async reloadImage() {
+        this.spinner = this.$loading.open();
+
         try {
           const response = await this.$http.get('https://aws.random.cat/meow');
           this.catImgUrl = response.data.file;
         } catch (e) {
           // log error
+          this.closeSpinner();
+        }
+      },
+      closeSpinner() {
+        if (this.spinner) {
+          this.spinner.close();
         }
       }
     },

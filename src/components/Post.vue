@@ -1,6 +1,6 @@
 <template>
   <div class="post-container">
-    <img :src="imgUrl" alt="logo" class="post-logo">
+    <img :src="imgUrl" @load="imageLoaded" alt="logo" class="post-logo">
 
     <h3>Comentarios</h3>
     <comment
@@ -37,6 +37,9 @@
     methods: {
       addComment(text) {
         this.$emit('comment-added', text)
+      },
+      imageLoaded() {
+        this.$emit('image-loaded')
       }
     }
   }

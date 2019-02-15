@@ -3,15 +3,18 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import router from './router'
 import bulma from 'bulma'
+import Buefy from 'buefy'
+import 'buefy/dist/buefy.css'
 
-Vue.use(VueAxios, axios)
-Vue.use(bulma)
+Vue.use(VueAxios, axios);
+Vue.use(bulma);
+Vue.use(Buefy);
 
 import App from './App.vue';
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 new Vue({
   render: h => h(App),
   router
-}).$mount('#app')
+}).$mount('#app');
