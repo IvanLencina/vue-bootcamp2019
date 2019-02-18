@@ -16,6 +16,11 @@ export default new VueRouter({
       path: '/contact',
       name: 'contact',
       component: () => import('./views/ContactForm.vue'),
+    },
+    {
+      path: '/countries/:code?',
+      name: 'countries',
+      component: () => import('./views/CountriesView.vue')
     }
   ],
 });
