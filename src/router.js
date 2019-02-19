@@ -21,6 +21,11 @@ export default new VueRouter({
       path: '/countries/:code?',
       name: 'countries',
       component: () => import('./views/CountriesView.vue')
+    },
+    {
+      path: '/counter',
+      name: 'counter',
+      component: () => import('./views/CounterVuex.vue')
     }
   ],
 });
