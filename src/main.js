@@ -10,8 +10,7 @@ Vue.use(VueAxios, axios);
 Vue.use(bulma);
 Vue.use(Buefy);
 
-import store from './store'
-
+import store from './store/store'
 
 import App from './App.vue';
 

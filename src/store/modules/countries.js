@@ -1,26 +1,20 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import ActionTypes from '../action-types'
 
 Vue.use(Vuex);
 
-const store = new Vuex.Store({
+const countries = {
   state: {
-    count: 0,
     countries: []
   },
   mutations: {
-    addOne (state) {
-      state.count++
-    },
     setCountries(state, countries) {
       state.countries = countries
     }
   },
   actions: {
-    increment (context) {
-      context.commit('addOne')
-    },
-    async getCountries (context) {
+    async [ActionTypes.GET_COUNTRIES](context) {
       try {
         const response = await Vue.axios.get('https://restcountries.eu/rest/v2/all?fields=name;alpha2Code');
 
@@ -29,7 +23,7 @@ const store = new Vuex.Store({
         throw new Error(e)
       }
     },
-    async getCountryData(context, selectedCountry) {
+    async [ActionTypes.GET_COUNTRY_DATA](context, selectedCountry) {
       try {
         const response = await Vue.axios.get(
           `https://restcountries.eu/rest/v2/alpha/${selectedCountry.alpha2Code}`
@@ -42,9 +36,6 @@ const store = new Vuex.Store({
     },
   },
   getters: {
-    total: state => {
-      return state.count
-    },
     countries: state => {
       return state.countries
     },
@@ -52,6 +43,6 @@ const store = new Vuex.Store({
       return state.countries.find(country => country.alpha2Code === code)
     }
   }
-});
+}
 
-export default store;
+export default countries;
