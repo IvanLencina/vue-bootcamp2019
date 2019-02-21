@@ -9,7 +9,13 @@
       </option>
     </select>
 
-    {{ selectedCountryData }}
+    <div v-if="selectedCountryData" class="country-data">
+      <h1 class="country-name">{{ selectedCountryData.name }}</h1>
+      <img
+        :src="selectedCountryData.flag"
+        class="flag">
+    </div>
+
   </section>
 </template>
 <script>
@@ -74,5 +80,10 @@
   }
 </script>
 <style lang="scss">
-
+h1.country-name {
+  text-align: center;
+  font-weight: bold;
+  font-size: 2rem;
+  margin: 10vh auto 3vh auto;
+}
 </style>
