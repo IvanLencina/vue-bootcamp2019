@@ -13,14 +13,20 @@
   </section>
 </template>
 <script>
+  import { mapGetters } from 'vuex'
+
   export default {
     name: 'CountriesView',
     data() {
       return {
-        countries: [],
         selectedCountry: null,
         selectedCountryData: null
       }
+    },
+    computed: {
+      ...mapGetters([
+        'countries'
+      ])
     },
     watch: {
       async selectedCountry() {
@@ -31,10 +37,10 @@
               code: this.selectedCountry.alpha2Code
             }
           }
-        )
+        );
 
         try {
-          this.selectedCountryData = await this.getCountryData();
+          this.selectedCountryData = await this.$store.dispatch('getCountryData', this.selectedCountry)
         } catch (e) {
           console.log(e)
         }
@@ -45,7 +51,7 @@
     },
     async created() {
       try {
-        this.countries = await this.getCountries();
+        await this.$store.dispatch('getCountries');
 
         if (this.$route.params.code) {
           this.setCountryData()
@@ -56,34 +62,13 @@
     },
     methods: {
       setCountryData() {
-        const country = this.getCountryByCode(this.$route.params.code);
+        const country = this.$store.getters.getCountryByCode(
+          this.$route.params.code
+        );
 
         if (country) {
           this.selectedCountry = country
         }
-      },
-      async getCountries() {
-        try {
-          const response = await this.$http.get('https://restcountries.eu/rest/v2/all?fields=name;alpha2Code');
-
-          return response.data
-        } catch (e) {
-          throw new Error(e)
-        }
-      },
-      async getCountryData() {
-         try {
-           const response = await this.$http.get(
-             `https://restcountries.eu/rest/v2/alpha/${this.selectedCountry.alpha2Code}`
-           );
-
-           return response.data
-         } catch (e) {
-            throw new Error(e)
-         }
-      },
-      getCountryByCode(code) {
-        return this.countries.find(country => country.alpha2Code === code)
       }
     }
   }
