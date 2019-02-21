@@ -20,6 +20,7 @@
 </template>
 <script>
   import { mapGetters } from 'vuex'
+  import ActionTypes from '../store/action-types'
 
   export default {
     name: 'CountriesView',
@@ -46,7 +47,7 @@
         );
 
         try {
-          this.selectedCountryData = await this.$store.dispatch('getCountryData', this.selectedCountry)
+          this.selectedCountryData = await this.$store.dispatch(ActionTypes.GET_COUNTRY_DATA, this.selectedCountry)
         } catch (e) {
           console.log(e)
         }
@@ -57,7 +58,7 @@
     },
     async created() {
       try {
-        await this.$store.dispatch('getCountries');
+        await this.$store.dispatch(ActionTypes.GET_COUNTRIES);
 
         if (this.$route.params.code) {
           this.setCountryData()
