@@ -12,37 +12,37 @@
 </template>
 
 <script>
-  import Comment from './Comment'
-  import CommentForm from './CommentForm'
+import Comment from './Comment'
+import CommentForm from './CommentForm'
 
-  export default {
-    name: "Post",
-    props: {
-      imgUrl: {
-        type: String,
-        required: true
-      },
-      comments: {
-        type: Array,
-        required: false,
-        default() {
-          return []
-        }
-      }
+export default {
+  name: 'Post',
+  props: {
+    imgUrl: {
+      type: String,
+      required: true
     },
-    components: {
-      Comment,
-      CommentForm
-    },
-    methods: {
-      addComment(text) {
-        this.$emit('comment-added', text)
-      },
-      imageLoaded() {
-        this.$emit('image-loaded')
+    comments: {
+      type: Array,
+      required: false,
+      default () {
+        return []
       }
     }
+  },
+  components: {
+    Comment,
+    CommentForm
+  },
+  methods: {
+    addComment (text) {
+      this.$emit('comment-added', text)
+    },
+    imageLoaded () {
+      this.$emit('image-loaded')
+    }
   }
+}
 </script>
 
 <style lang="scss" scoped>

@@ -23,52 +23,52 @@
 </template>
 
 <script>
-  import Post from '../components/Post'
-  import CommentCounter from '../components/CommentCounter'
+import Post from '../components/Post'
+import CommentCounter from '../components/CommentCounter'
 
-  export default {
-    name: "PostView",
-    components: {
-      Post,
-      CommentCounter
+export default {
+  name: 'PostView',
+  components: {
+    Post,
+    CommentCounter
+  },
+  data () {
+    return {
+      catImgUrl: null,
+      comments: [],
+      spinner: null
+    }
+  },
+  async created () {
+    await this.reloadImage()
+  },
+  methods: {
+    addComment (comment) {
+      this.comments.push(comment)
     },
-    data() {
-      return {
-        catImgUrl: null,
-        comments: [],
-        spinner: null
+    async reloadImage () {
+      this.spinner = this.$loading.open()
+
+      try {
+        const response = await this.$http.get('https://aws.random.cat/meow')
+        this.catImgUrl = response.data.file
+      } catch (e) {
+        // log error
+        this.closeSpinner()
       }
     },
-    async created() {
-      await this.reloadImage();
-    },
-    methods: {
-      addComment(comment) {
-        this.comments.push(comment)
-      },
-      async reloadImage() {
-        this.spinner = this.$loading.open();
-
-        try {
-          const response = await this.$http.get('https://aws.random.cat/meow');
-          this.catImgUrl = response.data.file;
-        } catch (e) {
-          // log error
-          this.closeSpinner();
-        }
-      },
-      closeSpinner() {
-        if (this.spinner) {
-          this.spinner.close();
-        }
-      }
-    },
-    computed: {
-      commentsCount() {
-        return this.comments.length
+    closeSpinner () {
+      if (this.spinner) {
+        this.spinner.close()
       }
     }
+  },
+  computed: {
+    commentsCount () {
+      return this.comments.length
+    }
   }
+}
 </script>
 
 <style lang="scss" scoped>

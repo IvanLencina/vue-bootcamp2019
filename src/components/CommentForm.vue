@@ -8,28 +8,28 @@
 </template>
 
 <script>
-  export default {
-    name: "CommentForm",
-    data() {
-      return {
-        text: ''
-      }
-    },
-    methods: {
-      submitComment() {
-        this.$emit('text-submitted', this.text);
+export default {
+  name: 'CommentForm',
+  data () {
+    return {
+      text: ''
+    }
+  },
+  methods: {
+    submitComment () {
+      this.$emit('text-submitted', this.text)
 
-        this.focusInput();
-        this.clearInput();
-      },
-      focusInput() {
-        this.$refs.commentInput.focus();
-      },
-      clearInput() {
-        this.text = '';
-      }
+      this.focusInput()
+      this.clearInput()
+    },
+    focusInput () {
+      this.$refs.commentInput.focus()
+    },
+    clearInput () {
+      this.text = ''
     }
   }
+}
 </script>
 
 <style scoped>

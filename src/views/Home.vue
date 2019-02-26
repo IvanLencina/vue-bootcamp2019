@@ -4,19 +4,19 @@
     </div>
 </template>
 <script>
-  import PostView from './PostView';
+import PostView from './PostView'
 
-  export default {
-      name: 'Home',
-      data() {
-        return {
+export default {
+  name: 'Home',
+  data () {
+    return {
 
-        }
-      },
-      components: {
-        PostView
-      }
     }
+  },
+  components: {
+    PostView
+  }
+}
 </script>
 <style lang="scss">
 

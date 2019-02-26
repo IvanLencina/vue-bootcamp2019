@@ -1,4 +1,4 @@
-import Vue from 'vue';
+import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
@@ -10,12 +10,12 @@ export default new VueRouter({
     {
       path: '/',
       name: 'home',
-      component: () => import('./views/Home.vue'),
+      component: () => import('./views/Home.vue')
     },
     {
       path: '/contact',
       name: 'contact',
-      component: () => import('./views/ContactForm.vue'),
+      component: () => import('./views/ContactForm.vue')
     },
     {
       path: '/countries/:code?',
@@ -26,6 +26,11 @@ export default new VueRouter({
       path: '/counter',
       name: 'counter',
       component: () => import('./views/CounterVuex.vue')
+    },
+    {
+      path: '/calculator',
+      name: 'calculator',
+      component: () => import('./views/Calculator.vue')
     }
-  ],
-});
+  ]
+})

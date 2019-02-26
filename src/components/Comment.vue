@@ -5,15 +5,15 @@
 </template>
 
 <script>
-  export default {
-    name: "Comment",
-    props: {
-      commentText: {
-        type: String,
-        required: true
-      }
+export default {
+  name: 'Comment',
+  props: {
+    commentText: {
+      type: String,
+      required: true
     }
   }
+}
 </script>
 
 <style lang="scss" scoped>

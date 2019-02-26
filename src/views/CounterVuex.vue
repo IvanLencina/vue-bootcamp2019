@@ -11,23 +11,23 @@
 
 <script>
 
-  import { mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
 
-  export default {
-    name: "CounterVuex",
-    computed: {
-      ...mapGetters([
-        'total',
-        // otro getter,
-        // otro mas
-      ])
-    },
-    methods: {
-      increment() {
-        this.$store.dispatch('increment')
-      }
+export default {
+  name: 'CounterVuex',
+  computed: {
+    ...mapGetters([
+      'total'
+      // otro getter,
+      // otro mas
+    ])
+  },
+  methods: {
+    increment () {
+      this.$store.dispatch('increment')
     }
   }
+}
 </script>
 
 <style lang="scss" scoped>

@@ -89,14 +89,14 @@
     </div>
 </template>
 <script>
-  export default {
-    name: 'ContactForm',
-    data() {
-      return {
+export default {
+  name: 'ContactForm',
+  data () {
+    return {
 
-      }
     }
   }
+}
 </script>
 <style lang="scss">
 
