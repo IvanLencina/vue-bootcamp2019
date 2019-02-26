@@ -1,5 +1,6 @@
-# vue-bootcamp
 [![Build Status](https://travis-ci.org/IvanLencina/vue-bootcamp2019.svg?branch=master)](https://travis-ci.org/IvanLencina/vue-bootcamp2019)
+
+# vue-bootcamp
 
 ## Project setup
 ```
