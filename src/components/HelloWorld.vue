@@ -26,9 +26,9 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String,
-    version: String,
+    version: String
   },
-  data() {
+  data () {
     return {
       email: null,
       isEmailValid: false,
@@ -36,35 +36,35 @@ export default {
     }
   },
   computed: {
-    emailLength() {
+    emailLength () {
       if (!this.email) {
-        return 0;
+        return 0
       }
 
-      return this.email.length;
+      return this.email.length
     }
   },
   methods: {
-    verifyEmail() {
-      this.isEmailValid = this.email.indexOf('@') > -1;
+    verifyEmail () {
+      this.isEmailValid = this.email.indexOf('@') > -1
     },
-    fetchCatImg() {
-      this.catImgUrl = null;
+    fetchCatImg () {
+      this.catImgUrl = null
 
       this.$http.get('https://aws.random.cat/meow').then((response) => {
-        this.catImgUrl = response.data.file;
+        this.catImgUrl = response.data.file
       }).catch((e) => {
-        console.log(e);
-      });
+        console.log(e)
+      })
     }
   },
   watch: {
-    email(newVal, oldVal) {
-      console.log('Nuevo valor: ', newVal);
-      console.log('Anterior: ', oldVal);
+    email (newVal, oldVal) {
+      console.log('Nuevo valor: ', newVal)
+      console.log('Anterior: ', oldVal)
     }
   },
-  created() {
+  created () {
     this.fetchCatImg()
   }
 }

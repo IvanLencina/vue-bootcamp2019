@@ -9,14 +9,14 @@
 </template>
 
 <script>
-  export default {
-    name: "FooterComponent",
-    methods: {
-      increment() {
-        this.$store.dispatch('increment')
-      }
+export default {
+  name: 'FooterComponent',
+  methods: {
+    increment () {
+      this.$store.dispatch('increment')
     }
   }
+}
 </script>
 
 <style scoped>

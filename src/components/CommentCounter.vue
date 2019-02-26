@@ -10,17 +10,17 @@
 </template>
 
 <script>
-  export default {
-    name: "CommentCounter",
-    props: {
-      count: {
-        type: Number,
-        default() {
-          return 0
-        }
+export default {
+  name: 'CommentCounter',
+  props: {
+    count: {
+      type: Number,
+      default () {
+        return 0
       }
     }
   }
+}
 </script>
 
 <style lang="scss" scoped>

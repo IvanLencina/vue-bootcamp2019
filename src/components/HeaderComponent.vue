@@ -22,19 +22,19 @@
 </template>
 
 <script>
-  export default {
-    name: "HeaderComponent",
-    data() {
-      return {
-        isMenuActive: false,
-      }
-    },
-    methods: {
-      toggleMenuVisibility() {
-        this.isMenuActive = !this.isMenuActive
-      }
+export default {
+  name: 'HeaderComponent',
+  data () {
+    return {
+      isMenuActive: false
+    }
+  },
+  methods: {
+    toggleMenuVisibility () {
+      this.isMenuActive = !this.isMenuActive
     }
   }
+}
 </script>
 
 <style lang="scss" scoped>
