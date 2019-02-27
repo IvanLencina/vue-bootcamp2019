@@ -52,4 +52,18 @@ describe('Calculator.vue', () => {
 
     expect(wrapper.vm.result).toBe(Infinity)
   })
+  it('La resta no debe permitir resultados negativos', () => {
+    const wrapper = shallowMount(Calculator)
+
+    const inputA = wrapper.find('#inputA')
+    const inputB = wrapper.find('#inputB')
+
+    inputA.setValue(2)
+    inputB.setValue(4)
+
+    const substractButton = wrapper.find('#substract')
+    substractButton.trigger('click')
+
+    expect(wrapper.vm.result).toBeGreaterThan(0)
+  })
 })
