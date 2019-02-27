@@ -64,6 +64,6 @@ describe('Calculator.vue', () => {
     const substractButton = wrapper.find('#substract')
     substractButton.trigger('click')
 
-    expect(wrapper.vm.result).toBeGreaterThan(0)
+    expect(wrapper.vm.result).toBeGreaterThan(-1)
   })
 })

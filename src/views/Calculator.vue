@@ -11,6 +11,7 @@
     <button id="sum" @click="suma">Suma</button>
     <button id="multiply" @click="multiply">Multiplicar</button>
     <button id="division" @click="divide">Dividir</button>
+    <button id="substract" @click="substract">Restar</button>
 
     <p>Resultado: {{result}}</p>
   </div>
@@ -33,6 +34,17 @@ export default {
     },
     divide () {
       this.result = Number(this.a) / Number(this.b)
+    },
+    substract () {
+      const substractResult = Number(this.a) - Number(this.b)
+
+      if (substractResult < 0) {
+        this.result = 0
+
+        return null
+      }
+
+      this.result = substractResult
     }
   }
 }
