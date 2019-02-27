@@ -37,4 +37,19 @@ describe('Calculator.vue', () => {
     expect(wrapper.vm.result).toBe(9)
     expect(typeof wrapper.vm.result).toBe('number')
   })
+
+  it('Divide should allow division by zero', () => {
+    const wrapper = shallowMount(Calculator)
+
+    const inputA = wrapper.find('#inputA')
+    const inputB = wrapper.find('#inputB')
+
+    inputA.setValue(6)
+    inputB.setValue(0)
+
+    const divisionButton = wrapper.find('#division')
+    divisionButton.trigger('click')
+
+    expect(wrapper.vm.result).toBe(Infinity)
+  })
 })

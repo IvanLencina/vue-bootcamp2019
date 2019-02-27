@@ -10,6 +10,7 @@
 
     <button id="sum" @click="suma">Suma</button>
     <button id="multiply" @click="multiply">Multiplicar</button>
+    <button id="division" @click="divide">Dividir</button>
 
     <p>Resultado: {{result}}</p>
   </div>
@@ -29,6 +30,9 @@ export default {
     },
     multiply () {
       this.result = Number(this.a) * Number(this.b)
+    },
+    divide () {
+      this.result = Number(this.a) / Number(this.b)
     }
   }
 }
