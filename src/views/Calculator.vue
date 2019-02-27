@@ -1,14 +1,15 @@
 <template>
   <div class="calculator-container">
     <p>Numero 1</p>
-    <input type="number" v-model="a" />
+    <input id="inputA" type="number" v-model="a" />
 
     <p>Número 2</p>
-    <input type="number" v-model="b" />
+    <input id="inputB" type="number" v-model="b" />
 
     <br/>
 
     <button id="sum" @click="suma">Suma</button>
+    <button id="multiply" @click="multiply">Multiplicar</button>
 
     <p>Resultado: {{result}}</p>
   </div>
@@ -25,6 +26,9 @@ export default {
   methods: {
     suma () {
       this.result = parseInt(this.a) + parseInt(this.b)
+    },
+    multiply () {
+      this.result = Number(this.a) * Number(this.b)
     }
   }
 }
